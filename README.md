@@ -10,9 +10,10 @@ Should work for tutorial/dev purposes on a basic local environment with minimal 
 
 ## LogStash Configuration
 When starting LogStash, you'll need to specify your configuration file from this repo using your local path:
-'''
+
+```
 ./logstash -f <YOUR_PATH_TO_THE_LS_CONFIG>/ls-gdelt-pipeline.conf
-'''
+```
 
 If things don't seem to be processing correcly, add the ```--debug``` flag to the command line on startup and take a look at output.
 
