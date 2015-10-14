@@ -26,5 +26,12 @@ If things don't seem to be processing correcly, add the ```--debug``` flag to th
 ## Kibana Configuration
 From the Settings tab, you'll need to configure an index pattern for the GDELT output. Type "gdelt" and it should show up. The grok filter should format index timestamps so you have a "@timstamp" time-field available.
 
+## Elasticsearch template
+After elasticsearch is installed, you can add an index template for the GDELT index.  This classifies the Location field in the logstash mapping as a [GeoPoint type](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-geo-point-type.html) in elasticsearch, allowing you to create a map visualization in Kibana. To add the mapping simply issue a PUT request to the elasticsearch
+```
+PUT http://<your_elastic_search_url>:9200/gdelt
+```
+The body  of that PUT request should be copied from the ```elasticsearch/gdelt-template.json``` file. 
+
 # GDELT Data Files
 This tutorial is no fun without data of course. The Python script should be helpful to pull files down within a date range. Start with a small range first as recent daily files are relatively large. **NOTE:** requires Python3 for urllib module.
